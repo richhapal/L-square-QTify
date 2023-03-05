@@ -2,4 +2,8 @@
      background-color: var(--color-primary);
      width: 100vw;
      height: 74px;
+
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
 }
