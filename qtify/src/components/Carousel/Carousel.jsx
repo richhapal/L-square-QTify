@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import style from "./Carousel.module.css";
@@ -7,26 +7,25 @@ import CarouselRight from "./CarouselRight/CarouselRight";
 export default function Carousel({ data, renderComponent }) {
      const [isBeginning, setBeginning] = useState(true);
      const [isEnd, setEnd] = useState(false);
+     useEffect(() => {});
      return (
           <>
                <Swiper
-                    spaceBetween={30}
-                    loop={false}
-                    speed={1000}
-                    slidesPerView={"auto"}
+                    spaceBetween={35}
+                    // loop={false}
+                    // speed={1000}
+                    slidesPerView={"5"}
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
                          setEnd(sw.isEnd);
                          console.log("isBegining", sw.isBeginning);
                          console.log("isEnd", sw.isEnd);
                     }}
-                    onSwiper={(swiper) => console.log()}
+                    onSwiper={(swiper) => console.log(swiper)}
                >
                     {!isBeginning && <CarouselLeft />}
                     {data.map((cartData) => (
-                         <SwiperSlide loading="lazy" key={cartData.id}>
-                              {renderComponent(cartData)}
-                         </SwiperSlide>
+                         <SwiperSlide key={cartData.id}>{renderComponent(cartData)}</SwiperSlide>
                     ))}
                     {!isEnd && <CarouselRight />}
                </Swiper>

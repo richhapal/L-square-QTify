@@ -53,6 +53,7 @@ const TopAlbums = (props) => {
                          <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} />} />
                     )}
                </div>
+               {/* <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} />} /> */}
           </section>
      );
 };

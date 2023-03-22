@@ -1,11 +1,12 @@
+.topAlbums {
+     /* border: 1px solid white; */
+     width: 100%;
+     padding: 15px;
+}
+
 .topAlbumsHeading {
      display: flex;
      justify-content: space-between;
-}
-
-.topAlbums {
-     /* border: 1px solid white; */
-     padding: 15px;
 }
 
 .topAlbumsContent {
