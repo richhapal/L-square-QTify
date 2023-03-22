@@ -18,6 +18,8 @@ html,
 body {
      height: 100%;
      font-family: "Poppins", sans-serif;
+     background-color: var(--color-black);
+     color: var(--color-white);
 }
 body {
      line-height: 1.5;
