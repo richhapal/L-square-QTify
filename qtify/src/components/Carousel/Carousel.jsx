@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
+// import "swiper/css/pagination";
+// import "./styles.css";
 import style from "./Carousel.module.css";
 import CarouselLeft from "./CarouselLeft/CarouselLeft";
 import CarouselRight from "./CarouselRight/CarouselRight";
@@ -22,6 +24,7 @@ export default function Carousel({ data, renderComponent }) {
                          console.log("isEnd", sw.isEnd);
                     }}
                     onSwiper={(swiper) => console.log(swiper)}
+                    className="mySwiper"
                >
                     {!isBeginning && <CarouselLeft />}
                     {data.map((cartData) => (
