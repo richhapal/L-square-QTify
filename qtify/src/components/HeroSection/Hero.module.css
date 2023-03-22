@@ -1,0 +1,17 @@
+.heroSection {
+     height: 270px;
+     width: 100vw;
+     padding: 29px 0;
+     background-color: var(--color-black);
+     color: var(--color-white);
+}
+
+.heroContent {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.heroContent h1 {
+     font-size: 32px;
+}
