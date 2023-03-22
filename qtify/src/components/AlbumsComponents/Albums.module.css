@@ -1,0 +1,21 @@
+.topAlbumsHeading {
+     display: flex;
+     justify-content: space-between;
+}
+
+.topAlbums {
+     /* border: 1px solid white; */
+     padding: 15px;
+}
+
+.topAlbumsContent {
+     padding: 10px 0;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 40px;
+}
+
+.topAlbumsHeadingButton {
+     color: var(--color-primary);
+     cursor: pointer;
+}
