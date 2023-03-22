@@ -10,7 +10,7 @@ export default function Carousel({ data, renderComponent }) {
      return (
           <>
                <Swiper
-                    spaceBetween={50}
+                    spaceBetween={30}
                     loop={false}
                     speed={1000}
                     slidesPerView={"auto"}
