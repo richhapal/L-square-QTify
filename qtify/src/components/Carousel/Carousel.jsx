@@ -7,14 +7,14 @@ import CarouselRight from "./CarouselRight/CarouselRight";
 export default function Carousel({ data, renderComponent }) {
      const [isBeginning, setBeginning] = useState(true);
      const [isEnd, setEnd] = useState(false);
-     useEffect(() => {});
+
      return (
           <>
                <Swiper
                     spaceBetween={35}
                     // loop={false}
                     // speed={1000}
-                    slidesPerView={"5"}
+                    slidesPerView={"7"}
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
                          setEnd(sw.isEnd);
