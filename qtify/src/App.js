@@ -9,7 +9,7 @@ function App() {
                <Navbar />
                <HeroSections />
                <Albums title="Top Albums" />
-               {/* <Albums title="New Albums" /> */}
+               <Albums title="New Albums" />
           </>
      );
 }
