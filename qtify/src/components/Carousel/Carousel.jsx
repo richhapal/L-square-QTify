@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css";
 // import "swiper/css/pagination";
 // import "./styles.css";
@@ -14,9 +15,12 @@ export default function Carousel({ data, renderComponent }) {
           <>
                <Swiper
                     spaceBetween={35}
+                    initialSlide={0}
+                    modules={[Navigation]}
                     // loop={false}
                     // speed={1000}
-                    slidesPerView={"7"}
+                    allowTouchMove={false}
+                    slidesPerView={"6"}
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
                          setEnd(sw.isEnd);

@@ -35,3 +35,14 @@ export const getSongList = async () => {
           console("topAlbumList", error);
      }
 };
+export const getGenreList = async () => {
+     try {
+          const URL = "https://qtify-backend-labs.crio.do/genres";
+          const response = await axios.get(URL);
+          const list = response.data;
+          //   console.log("topAlbumList", list);
+          return list;
+     } catch (error) {
+          console("topAlbumList", error);
+     }
+};
