@@ -19,7 +19,7 @@ export default function Carousel({ data, renderComponent }) {
                     modules={[Navigation]}
                     // loop={false}
                     // speed={1000}
-                    allowTouchMove={false}
+                    allowTouchMove={true}
                     slidesPerView={"auto"}
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
