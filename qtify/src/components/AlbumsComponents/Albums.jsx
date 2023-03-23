@@ -10,13 +10,8 @@ const TopAlbums = (props) => {
 
      useEffect(() => {
           const callApi = async () => {
-               if (title === "Top Albums") {
-                    const data = await getTopAlbumList();
-                    setAlbumList([...data]);
-               } else {
-                    const data = await getNewAlbumList();
-                    setAlbumList([...data]);
-               }
+               const data = await props.apiCall();
+               setAlbumList([...data]);
           };
           callApi();
      }, []);
@@ -25,32 +20,34 @@ const TopAlbums = (props) => {
           <section className={style.topAlbums}>
                <div className={style.topAlbumsHeading}>
                     <h4>{title}</h4>
-                    <div className={style.topAlbumsHeadingButton}>
-                         {!isShowAll ? (
-                              <h4
-                                   onClick={() => {
-                                        setIsShowAll(true);
-                                   }}
-                              >
-                                   Show all
-                              </h4>
-                         ) : (
-                              <h4
-                                   onClick={() => {
-                                        setIsShowAll(false);
-                                   }}
-                              >
-                                   Collapse
-                              </h4>
-                         )}
-                    </div>
+                    {title !== "Songs" && (
+                         <div className={style.topAlbumsHeadingButton}>
+                              {!isShowAll ? (
+                                   <h4
+                                        onClick={() => {
+                                             setIsShowAll(true);
+                                        }}
+                                   >
+                                        Show all
+                                   </h4>
+                              ) : (
+                                   <h4
+                                        onClick={() => {
+                                             setIsShowAll(false);
+                                        }}
+                                   >
+                                        Collapse
+                                   </h4>
+                              )}
+                         </div>
+                    )}
                </div>
 
                <div className={style.topAlbumsContent}>
                     {isShowAll ? (
-                         albumList.map((data) => <CartComponent {...data} key={data.id} />)
+                         albumList.map((data) => <CartComponent {...data} key={data.id} heading={title} />)
                     ) : (
-                         <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} />} />
+                         <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} heading={title} />} />
                     )}
                </div>
                {/* <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} />} /> */}

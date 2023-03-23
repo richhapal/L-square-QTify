@@ -23,3 +23,15 @@ export const getNewAlbumList = async () => {
           console("topAlbumList", error);
      }
 };
+
+export const getSongList = async () => {
+     try {
+          const URL = "https://qtify-backend-labs.crio.do/songs";
+          const response = await axios.get(URL);
+          const list = response.data;
+          //   console.log("topAlbumList", list);
+          return list;
+     } catch (error) {
+          console("topAlbumList", error);
+     }
+};

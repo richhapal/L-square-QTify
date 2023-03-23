@@ -29,6 +29,7 @@
 
 .follower {
      background-color: var(--color-black);
+
      width: max-content;
      padding: 5px;
      font-weight: 400;
@@ -41,7 +42,11 @@
 
 .cartTitle {
      position: absolute;
+     width: 100%;
      bottom: 0;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
      font-weight: 400;
      font-size: 14px;
      line-height: 21px;
