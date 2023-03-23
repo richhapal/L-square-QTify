@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css";
 // import "swiper/css/pagination";
-// import "./styles.css";
+import "./file.css";
 import style from "./Carousel.module.css";
 import CarouselLeft from "./CarouselLeft/CarouselLeft";
 import CarouselRight from "./CarouselRight/CarouselRight";
@@ -20,7 +20,7 @@ export default function Carousel({ data, renderComponent }) {
                     // loop={false}
                     // speed={1000}
                     allowTouchMove={false}
-                    slidesPerView={"6"}
+                    slidesPerView={"auto"}
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
                          setEnd(sw.isEnd);
