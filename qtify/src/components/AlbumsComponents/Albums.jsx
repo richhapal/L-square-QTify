@@ -9,6 +9,7 @@ const TopAlbums = (props) => {
      const [albumList, setAlbumList] = useState([]);
      const [selectedFilterIndex, setSelectedFilterIndex] = useState(0);
      const [filters, setFilters] = useState([{ key: "all", label: "All" }]);
+     // const [swiperStartFromBegining,setSwiperStartFromBegining]=
 
      const fetchData = async (dataSource) => {
           const data = await dataSource();
@@ -22,9 +23,6 @@ const TopAlbums = (props) => {
                filterSource()
                     .then((res) => {
                          const { data } = res;
-                         console.log("value", data);
-                         // setFilters(data);
-
                          setFilters([...filters, ...data]);
                     })
                     .catch((e) => {
@@ -33,15 +31,13 @@ const TopAlbums = (props) => {
           }
      }, []);
 
+     useEffect(() => {}, [selectedFilterIndex]);
+
      const filterCartToRender = filterSource ? albumList.filter((elem) => (selectedFilterIndex !== 0 ? elem.genre.key === filters[selectedFilterIndex].key : elem)) : albumList;
 
-     // console.log("filtersSongs", filterSongs);
-
-     // console.log("filters", filters);
-
-     //      <Tooltip title={} arrow>
-     //       {/* <Button>Arrow</Button> */}
-     //     </Tooltip>
+     const handleShowAll = () => {
+          setIsShowAll(!isShowAll);
+     };
 
      return (
           <section className={style.topAlbums}>
@@ -50,23 +46,7 @@ const TopAlbums = (props) => {
 
                     {title !== "Songs" && (
                          <div className={style.topAlbumsHeadingButton}>
-                              {!isShowAll ? (
-                                   <h4
-                                        onClick={() => {
-                                             setIsShowAll(true);
-                                        }}
-                                   >
-                                        Show all
-                                   </h4>
-                              ) : (
-                                   <h4
-                                        onClick={() => {
-                                             setIsShowAll(false);
-                                        }}
-                                   >
-                                        Collapse
-                                   </h4>
-                              )}
+                              <h4 onClick={handleShowAll}>{!isShowAll ? "Show all" : "Collapse"}</h4>
                          </div>
                     )}
                </div>
@@ -75,7 +55,11 @@ const TopAlbums = (props) => {
                     {isShowAll ? (
                          filterCartToRender.map((data) => <CartComponent {...data} key={data.id} heading={title} />)
                     ) : (
-                         <Carousel data={filterCartToRender} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} heading={title} />} />
+                         <Carousel
+                              selectedFilterIndex={selectedFilterIndex}
+                              data={filterCartToRender}
+                              renderComponent={(cart) => <CartComponent {...cart} key={cart.id} heading={title} />}
+                         />
                     )}
                </div>
                {/* <Carousel data={albumList} renderComponent={(cart) => <CartComponent {...cart} key={cart.id} />} /> */}

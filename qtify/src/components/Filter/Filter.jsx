@@ -3,6 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useSwiper } from "swiper/react";
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -10,9 +11,9 @@ interface TabPanelProps {
      value: number;
 }
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
      const { children, value, index, ...other } = props;
-
+     const swiper = useSwiper();
      return (
           <div role="tabpanel" hidden={value !== index} id={`simple-tabpanel-${index}`} aria-labelledby={`simple-tab-${index}`} {...other}>
                {value === index && (
@@ -24,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
      );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index) {
      return {
           id: `simple-tab-${index}`,
           "aria-controls": `simple-tabpanel-${index}`,
@@ -35,6 +36,8 @@ const Filter = (props) => {
      const handleChange = (event, newValue) => {
           props.setSelectedFilterIndex(newValue);
      };
+
+     console.log("-----------", props.swipeFromBegining);
 
      return (
           <Box sx={{ width: "100%" }}>
@@ -50,15 +53,6 @@ const Filter = (props) => {
                          ))}
                     </Tabs>
                </Box>
-               {/* <TabPanel value={value} index={0}>
-                    Item One
-               </TabPanel>
-               <TabPanel value={value} index={1}>
-                    Item Two
-               </TabPanel>
-               <TabPanel value={value} index={2}>
-                    Item Three
-               </TabPanel> */}
           </Box>
      );
 };
