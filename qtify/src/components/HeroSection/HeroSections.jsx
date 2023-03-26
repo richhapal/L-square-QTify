@@ -9,7 +9,7 @@ const HeroSections = () => {
                          <h1>Over thousands podcast episodes</h1>
                     </div>
                     <div className={style.heroImage}>
-                         <img src={require("../../assests/vibrating-headphone.png")} alt="heroImage" srcset="" height="212px" width="212px" />
+                         <img src={require("../../assests/vibrating-headphone.png")} alt="heroImage" height="212px" width="212px" />
                     </div>
                </div>
           </section>

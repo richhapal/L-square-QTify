@@ -4,11 +4,11 @@ import style from "./CarouselLeft.module.css";
 import { ReactComponent as Left } from "./Left.svg";
 export default function CarouselLeft(props) {
      const swiper = useSwiper();
-     console.log("selectedFilterIndex----", props.selectedFilterIndex);
+     // console.log("selectedFilterIndex----", props.selectedFilterIndex);
 
      useEffect(() => {
           // swiper.slideTo(0);
-          console.log("indexchaginasdfasfasdfsdafd", props.selectedFilterIndex);
+          // console.log("indexchaginasdfasfasdfsdafd", props.selectedFilterIndex);
      }, [props.selectedFilterIndex]);
 
      return (

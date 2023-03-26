@@ -9,7 +9,7 @@ const CartComponent = (props) => {
                <div className={style.cartLayout}>
                     <div className={style.cartContent}>
                          <div className={style.imageSection}>
-                              <img className={style.image} src={image} alt="album" />
+                              <img className={style.image} srcSet={image} alt="album" />
                          </div>
                          <div className={style.follower}>
                               {follows && <p>{follows} Follows</p>}

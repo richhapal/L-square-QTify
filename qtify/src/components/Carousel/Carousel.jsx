@@ -18,18 +18,13 @@ export default function Carousel({ data, renderComponent, selectedFilterIndex })
           if (Swp) {
                Swp.slideTo(0);
           }
-          console.log("render");
+          // console.log("render");
           // console.log("indexChagen", swp);
           // swp.slideTo(0);
           // Swp.slideTo(0);
      }, [selectedFilterIndex]);
 
      // console.log("isBegin", isBeginning, "isEnd", isEnd);
-
-     const handleSwiper = (swiper) => {
-          console.log(swiper);
-          setSwp(swiper);
-     };
 
      return (
           <>
@@ -44,12 +39,14 @@ export default function Carousel({ data, renderComponent, selectedFilterIndex })
                     onSlideChange={(sw) => {
                          setBeginning(sw.isBeginning);
                          setEnd(sw.isEnd);
-                         console.log(sw);
-                         console.log("isBegining", sw.isBeginning);
-                         console.log("isEnd", sw.isEnd);
+                         // console.log(sw);
+                         // console.log("isBegining", sw.isBeginning);
+                         // console.log("isEnd", sw.isEnd);
                          initial = true;
                     }}
-                    onSwiper={handleSwiper}
+                    onSwiper={(swiper) => {
+                         setSwp(swiper);
+                    }}
                     className="mySwiper"
                >
                     {!isBeginning && <CarouselLeft />}
