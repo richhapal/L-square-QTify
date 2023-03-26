@@ -1,6 +1,6 @@
 .heroSection {
      height: 270px;
-     width: 100vw;
+     width: 100%;
      padding: 29px 0;
      background-color: var(--color-black);
      color: var(--color-white);
